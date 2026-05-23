@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1c1714"/>
+  <rect x="88" y="232" width="336" height="48" rx="24" fill="#e89752"/>
+  <rect x="120" y="312" width="180" height="20" rx="10" fill="#5a4d44"/>
+  <rect x="320" y="312" width="60" height="20" rx="10" fill="#d4b86a"/>
+  <text x="256" y="200" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="500" font-style="italic" fill="#f5ead8" text-anchor="middle">ST</text>
+</svg>
