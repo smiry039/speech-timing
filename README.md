@@ -1,16 +1,30 @@
-# React + Vite
+# Speech Timing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal tool for calculating text-reveal animation timing for Foodimal 2D animation work in Rive. Calculates exact frame counts for character-by-character text reveals, including punctuation holds and ellipsis-per-dot animation, so the timing can be mirrored 1:1 in Rive keyframes.
 
-Currently, two official plugins are available:
+Live (installable as a PWA): https://smiry039.github.io/speech-timing/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Per-character reveal timing with configurable frames/char and FPS (30 or 60)
+- Punctuation holds (comma, period, em-dash, ellipsis, question, exclamation) — folded into the preceding chunk, hold follows
+- Ellipsis renders per-dot (3× reveal + hold)
+- Three timeline visualizations: bar / keyframes / velocity (cumulative characters over time)
+- Cumulative character index column — read off the exact `Offset` value to set in Rive at each event boundary
+- Copy-to-clipboard timeline export
+- Works fully offline once installed (PWA with service worker)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Local development
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deploy
+
+Push to `main`. GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys to GitHub Pages automatically.
+
+## Stack
+
+Vite + React 19 · Tailwind v4 (`@tailwindcss/vite`) · `@fontsource` for Fraunces / JetBrains Mono / DM Sans · `vite-plugin-pwa` for manifest + service worker · lucide-react for icons.
